@@ -1,9 +1,24 @@
+/* GLOBAL */
 * {
     font-family: 'Inter', sans-serif;
 }
 
-body {
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+}
+
+blockquote, body, figure, ul {
     margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 2rem;
 }
 
 html {
@@ -15,9 +30,28 @@ li {
     list-style: none;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
+figcaption, p {
+    font-size: .95rem;
+    line-height: 2rem;
+}
+
+section {
+    margin: 4rem 0 0 0;
+}
+
+/* UTILITY */
+.bold {
+    font-weight: 600;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 725px;
+    padding: 0 2rem;
+}
+
+.no-wrap {
+    white-space: nowrap;
 }
 
 /* HEADER */
@@ -67,6 +101,7 @@ ul {
 
 .header-links-wrapper {
     margin: 0 auto;
+    max-width: 725px;
     text-align: center;
     width: 100%;
 }
@@ -87,9 +122,27 @@ ul {
 }
 
 .header-logo {
+    display: grid;
     justify-self: center;
     transform: translateX(4px);
+}
+
+.header-logo img {
+    grid-column: 1;
+    grid-row: 1;
     height: 5.25rem;
+}
+
+.header-logo:hover .logo-white {
+    opacity: 0;
+}
+
+.header-logo:hover .logo-red {
+    opacity: 1;
+}
+
+.logo-red {
+    opacity: 0;
 }
 
 .header-logo-w-burger {
@@ -116,6 +169,14 @@ ul {
     transform: translateX(-100%);
 }
 
+.hamburger:hover {
+    cursor: pointer;
+}
+
+.hamburger:hover svg{
+    stroke: red;
+}
+
 .header-svg {
     stroke: white;
 }
@@ -138,4 +199,66 @@ ul {
 
 .open-menu .hamburger-svg {
     display: none;
+}
+
+/* NEW ALBUM SECTION */
+
+.new-album-section {
+    align-items: center;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr;
+}
+
+.new-album-section img {
+    height: auto;
+    width: 100%;
+}
+
+@media (min-width: 550px) {
+    .new-album-section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.new-album-text-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.new-album-out-now {
+    margin: 0 0 1rem 0;
+}
+
+.order-link {
+    border: 2px solid white;
+    font-weight: 600;
+    margin: 1.5rem 0 0 0;
+    padding: 1rem;
+    text-transform: uppercase;
+    width: max-content;
+}
+
+.order-link:hover {
+    background-color: red;
+    border: 2px solid red;
+    color: black;
+    font-weight: 800;
+}
+
+/* VIDEO SECTION */
+.video {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.video-wrapper {
+    height: 0;
+    margin: 4rem 0 0 0;
+    padding-bottom: 56.25%;
+    position: relative;
 }
