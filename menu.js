@@ -1,30 +1,25 @@
-function openMenu (menuOpen, header, body) {
-    menuOpen = true;
-    header.classList.add('open-menu');
-    body.style.position = 'fixed';
-}
+export class Menu {
+    constructor() {
+        this.isOpen = false;
+        this.burger = document.getElementById('hamburger');
+    }
 
-function closeMenu (menuOpen, header, body) {
-    menuOpen = false;
-    header.classList.remove('open-menu');
-    body.style.position = 'unset';
-}
+    open () {
+        this.isOpen = true;
+        document.getElementById('header').classList.add('open-menu');
+        document.querySelector('body').style.position = 'fixed';
+    }
+    
+    close () {
+        this.isOpen = false;
+        document.getElementById('header').classList.remove('open-menu');
+        document.querySelector('body').style.position = 'unset';
+    }
+    
 
-
-export function addMenuEvents () {
-    let menuOpen = false;
-    const header = document.getElementById('header');
-    const hamburger = document.getElementById('hamburger');
-    const body = document.querySelector('body');
-
-    const mediaQuery = window.matchMedia('(min-width: 550px)');
-    mediaQuery.addEventListener('change', e => {
-        if(e.matches && menuOpen) {
-            closeMenu(menuOpen, header, body);
-        }
-    });
-
-    hamburger.addEventListener('click', () => {
-        menuOpen ? closeMenu(menuOpen, header, body) : openMenu(menuOpen, header, body);
-    });
+    addEvents () {
+        this.burger.addEventListener('click', () => this.isOpen ? this.close() : this.open());
+        const mediaQuery = window.matchMedia('(min-width: 550px)');
+        mediaQuery.addEventListener('change', e => e.matches && this.close());
+    }
 }

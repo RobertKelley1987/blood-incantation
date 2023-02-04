@@ -1,5 +1,5 @@
 import { data } from './data.js';
-import { addMenuEvents } from './menu.js';
+import { Menu } from './Menu.js';
 
 window.addEventListener('DOMContentLoaded', () => {
     // compile handlebars template and add to home page
@@ -7,5 +7,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const compiledTourDateTemplate = Handlebars.compile(tourDateTemplate);
     document.getElementById('tour-dates').innerHTML = compiledTourDateTemplate(data);
 
-    addBurgerEvents();
+    const mobileMenu = new Menu();
+    mobileMenu.addEvents();
 });
