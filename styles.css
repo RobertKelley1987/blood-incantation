@@ -1,0 +1,141 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+html {
+    background: black;
+    color: white;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+.header {
+    background: black;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header.open-menu  {
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+}
+
+@media (min-width: 550px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        min-height: unset;
+        position: static;
+    }
+}
+
+.header-link {
+    display: none;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.open-menu .header-link {
+    display: block;
+    font-size: 2rem; 
+    margin: 1.25rem 0;
+}
+
+@media (min-width: 550px) {
+    .header-link {
+        display: inline-block;
+        font-size: 1rem;
+        margin: 0;
+    }
+}
+
+.header-links-wrapper {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.open-menu .header-links-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 550px) {
+    .header-links-wrapper {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        width: 75%;
+    }
+}
+
+.header-logo {
+    justify-self: center;
+    transform: translateX(4px);
+    height: 5.25rem;
+}
+
+.header-logo-w-burger {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 100% auto;
+    padding: 1rem;
+    width: calc(100% - 2rem);
+}
+
+.open-menu .header-logo-w-burger {
+    position: fixed;
+    top: 0;
+}
+
+@media (min-width: 550px) {
+    .header-logo-w-burger {
+        position: unset;
+        width: unset;
+    }
+}
+
+.hamburger {
+    transform: translateX(-100%);
+}
+
+.header-svg {
+    stroke: white;
+}
+
+@media (min-width: 550px) {
+    .header-svg {
+        height: 0;
+        position: absolute;
+        width: 0;
+    }
+}
+
+.closed-svg {
+    display: none;
+}
+
+.open-menu .closed-svg {
+    display: inline-block;
+}
+
+.open-menu .hamburger-svg {
+    display: none;
+}

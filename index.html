@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--Meta data-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Blood Incantation</title>
+    <!--Next three link elements are for google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <link href="styles.css" rel="stylesheet"/>
+    <!--Handlebars CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 </head>
 <body>
     
+    <header id="header" class="header">
+        <ul class="header-links-wrapper">
+            <li class="header-link">Music</li>
+            <li class="header-link">Video</li>
+            <div class="header-logo-w-burger">
+                <img class="header-logo" src="./imgs/logo-white.png" />
+                <div id="hamburger" class="hamburger">
+                    <svg class="header-svg hamburger-svg" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                    <svg class="header-svg closed-svg" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </div>
+            </div>
+            <li class="header-link">Tour</li>
+            <li class="header-link">Merch</li>
+        </ul>
+    </header>
+
+    <h2>TOUR DATES</h2>
+    <ul id="tour-dates"></ul>
+
+    <script id="tour-date-template" type="text/x-handlebars-template">
+        {{#each tourDates}}
+            <li class="tour-date">
+                <p class="tour-date-data">{{this.date}}</p>
+                <p class="tour-date-data">{{this.venue}}</p>
+                <p class="tour-date-data">{{this.location}}</p>
+                <a class="button">Tickets</a>
+            </li>
+        {{/each}}
+    </script>
+
+    <script src="./scripts.js" type="module"></script>
 </body>
 </html>
